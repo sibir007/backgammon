@@ -474,7 +474,7 @@ class GameBoard {
   // checkSlotId(toSlotPosition: number) {
   //   this.gameBordLine._checkSlotId(toSlotPosition);
   // }
-  moveTrick(playerId: string, trickId: number, fromSlotPosition: number, toSlotPosition: number) {
+  moveTrick(trickId: number, fromSlotPosition: number, toSlotPosition: number) {
     this.gameBordLine.moveTrick(trickId, fromSlotPosition, toSlotPosition);
   }
 
@@ -1006,10 +1006,11 @@ class Game {
   }
 
 
-  moveTrick(playerId: string, trickId: number, fromSlotPosition: number, toSlotPosition: number) {
+  moveTrick(trickId: number, fromSlotPosition: number, toSlotPosition: number) {
     // console.log(this.GameBoard.trickSet.getTryckById(trickId))
-    this._checkGameStateIsWitingPlayerMove(); // must be GameState.[WhitePlayerFirstTurnWatingMoves || BlackPlayerFirstTurnWatingMoves || WhitePlayerTurnWatingMoves || BlackPlayerTurnWatingMoves]
-    this._checkPlayerIsCurrentPlayer(playerId); // playerId must be eaqule currentPlayerId
+    this._checkGameStateIsWitingPlayerMove();
+    const trickOwnedPlayerId = this.GameBoard.getPlayerIdByTrickId(trickId); // must be GameState.[WhitePlayerFirstTurnWatingMoves || BlackPlayerFirstTurnWatingMoves || WhitePlayerTurnWatingMoves || BlackPlayerTurnWatingMoves]
+    this._checkPlayerIsCurrentPlayer(trickOwnedPlayerId); // playerId must be eaqule currentPlayerId
     // this._checkFromSlotPosition(fromSlotPosition); // must exist
     // this._checkToSlotPosition(toSlotPosition); // must exist
     // this._chckTrickTd(trickId); // must exist
@@ -1032,7 +1033,7 @@ class Game {
     // const fromSlotPosition: number = this.GameBoard.getSlotIdByTrickId(trickId)!;
     // _checkMoveFromeHead(tickId); //che
     // _checkMoveDirection(trickId);
-    this.GameBoard.moveTrick(playerId, trickId, fromSlotPosition, toSlotPosition);
+    this.GameBoard.moveTrick(trickId, fromSlotPosition, toSlotPosition);
     this.moveCount -= 1;
     if (this.moveCount === 0) {
       // switch turns
@@ -1075,12 +1076,14 @@ class Game {
       this.state === GameState.BlackPlayerFirstTurnWatingMoves ||
       this.state === GameState.WhitePlayerTurnWatingMoves ||
       this.state === GameState.BlackPlayerTurnWatingMoves)) {
-      throw new Error("Cannot roll cubes in current game state");
+      throw new Error("Cannot move trick in current game state");
     }
   }
 
   private _checkPlayerIsCurrentPlayer(playerId: string) {
+    console.log("in _checkPlayerIsCurrentPlayer", this.currentPlayerId, playerId);
     if (this.currentPlayerId !== playerId) {
+      console.log("in _checkPlayerIsCurrentPlayer_if", this.currentPlayerId, playerId);
       throw new Error("It's not the current player's trick to move");
     }
   }

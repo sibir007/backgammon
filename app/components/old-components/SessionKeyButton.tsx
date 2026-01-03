@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useSessionWallet } from "@magicblock-labs/gum-react-sdk";
-import { useGameState } from "@/contexts/old-context/GameStateProvider";
+import { useGameState } from "@/contexts/GameStateProvider";
 import { PROGRAM_ID } from "@/utils/anchor";
 
 const SessionKeyButton = () => {

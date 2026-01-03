@@ -3,7 +3,7 @@ import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import { Board } from "@/components/my-components/game_two/Board";
 import { DraggableTrick } from './DNDComponents';
 import { DroppableGemeStack } from "@/components/my-components/game_two/DNDComponents";
-import { useGameState } from "@/contexts/TTTGameStateProvider_2";
+import { useGameState } from "@/contexts/BGameStateProvider_2";
 // import { GameSlot, GameState, GameTrick } from "@/types/game-types";
 import { Button, HStack, Input, InputGroup, InputRightElement, VStack, Wrap, WrapItem, Text, Center, Grid, GridItem } from "@chakra-ui/react";
 

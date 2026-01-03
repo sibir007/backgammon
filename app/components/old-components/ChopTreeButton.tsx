@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import { Button, HStack, VStack } from "@chakra-ui/react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { useSessionWallet } from "@magicblock-labs/gum-react-sdk";
-import { useGameState } from "@/contexts/old-context/GameStateProvider";
+import { useGameState } from "@/contexts/GameStateProvider";
 import {
   GAME_DATA_SEED,
   gameDataPDA,

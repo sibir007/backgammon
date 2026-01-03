@@ -1,8 +1,6 @@
 import React, { ChangeEvent, MouseEventHandler, useState } from "react";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
-import { DraggableTrick } from './DNDComponents';
-import { DroppableGemeStack } from "@/components/my-components/game_two/DNDComponents";
-import { useGameState, game } from "@/contexts/TTTGameStateProvider_2";
+import { useGameState, game } from "@/contexts/BGameStateProvider_2";
 import { Button, HStack, Input, InputGroup, InputRightElement, VStack, Wrap, WrapItem, Text, Center, Flex, Spacer, Box, ButtonGroup, FormControl, FormLabel, Tag, TagLabel, Badge } from "@chakra-ui/react";
 
 import { set } from "@coral-xyz/anchor/dist/cjs/utils/features";
@@ -136,7 +134,7 @@ export function GameComponent() {
         // console.log("drag end", active.id, over.id);
         try {
 
-            game?.moveTrick(CURRENT_PLAYER_ID!, active.id as number, active.data.current?.currentSlotId, over.id as number)
+            game?.moveTrick(active.id as number, active.data.current?.currentSlotId, over.id as number)
             setGameState(game.cloneForUI())
             toast({
                 title: "Move done",

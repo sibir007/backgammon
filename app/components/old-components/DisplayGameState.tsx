@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { HStack, VStack, Text } from "@chakra-ui/react"
 import { useWallet } from "@solana/wallet-adapter-react"
-import { useGameState } from "@/contexts/old-context/GameStateProvider"
+import { useGameState } from "@/contexts/GameStateProvider"
 import { TOTAL_WOOD_AVAILABLE } from "@/utils/anchor"
 
 const DisplayPlayerData = () => {

@@ -10,14 +10,14 @@ import DisplayNfts from "@/components/old-components/DisplayNfts"
 import { useState } from "react"
 import { initialGameState } from "../test-data/game-data"
 import { GameComponent } from '@/components/my-components/game_two/Game';
-import { TTTGameStateProvider as TTTGameStateProvider_2 } from '@/contexts/TTTGameStateProvider_2'
+import { BGameStateProvider as TTTGameStateProvider_2 } from '@/contexts/BGameStateProvider_2'
 import { Game_2 } from '@/components/my-components/game_two/Game_2';
 
 export default function Home() {
   const { publicKey } = useWallet();
-  const containers = ['A', 'B', 'C'];
-  const [parent, setParent] = useState(null);
-  const [gameState, setGameState] = useState(initialGameState)
+  // const containers = ['A', 'B', 'C'];
+  // const [parent, setParent] = useState(null);
+  // const [gameState, setGameState] = useState(initialGameState)
 
 
 
@@ -28,14 +28,14 @@ export default function Home() {
         <WalletMultiButton />
       </Flex>
       <VStack justify='center'>
-        <Heading bg='gray.300'>TttGame3</Heading>
+        <Heading bg='gray.300'>SOLAN BACKGAMMON GAME</Heading>
         {!publicKey && <Text bg='gray.300'>Connect to devnet wallet!</Text>}
-        <DisplayGameState />
+        {/* <DisplayGameState />
         <InitPlayerButton />
         <SessionKeyButton />
         <ChopTreeButton />
         <RequestAirdrop />
-        <DisplayNfts />
+        <DisplayNfts /> */}
 
 
       </VStack>

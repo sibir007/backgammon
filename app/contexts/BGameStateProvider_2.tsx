@@ -22,7 +22,7 @@ import {
 
 export const game = new Game();
 
-interface TTTGameStateContextType_2 {
+interface BGameStateContextType_2 {
     //   playerDataPDA: PublicKey | null;
     gameState: GameStateForUI;
     setGameState: (newGameState: GameStateForUI) => void;
@@ -31,11 +31,11 @@ interface TTTGameStateContextType_2 {
 }
 
 
-const TTTGameStateContext = createContext<TTTGameStateContextType_2>({} as TTTGameStateContextType_2);
+const BGameStateContext = createContext<BGameStateContextType_2>({} as BGameStateContextType_2);
 
-export const useGameState = () => useContext(TTTGameStateContext);
+export const useGameState = () => useContext(BGameStateContext);
 
-export const TTTGameStateProvider = ({
+export const BGameStateProvider = ({
     children,
 }: {
     children: React.ReactNode;
@@ -44,7 +44,7 @@ export const TTTGameStateProvider = ({
     const [gameState, setGameState] = useState<GameStateForUI>(game.cloneForUI());
 
     return (
-        <TTTGameStateContext.Provider
+        <BGameStateContext.Provider
             value={{
                 // playerDataPDA,
                 gameState: gameState,
@@ -54,6 +54,6 @@ export const TTTGameStateProvider = ({
             }}
         >
             {children}
-        </TTTGameStateContext.Provider>
+        </BGameStateContext.Provider>
     );
 };

@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import WalletContextProvider from "../contexts/WalletContextProvider"
 import SessionProvider from "@/contexts/SessionProvider"
-import { GameStateProvider } from "@/contexts/old-context/GameStateProvider"
+import { GameStateProvider } from "@/contexts/GameStateProvider"
 import type { AppProps } from "next/app"
 import { NftProvider } from "@/contexts/NftProvider"
 
