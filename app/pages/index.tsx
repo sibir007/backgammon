@@ -22,11 +22,8 @@ export default function Home() {
 
 
   return (
-    <Box bg='gray.100' id="box" h='100%' >
-      <Flex px={4} py={4} bg='gray.200'>
-        <Spacer bg='gray.300' />
-        <WalletMultiButton />
-      </Flex>
+    <>
+
       <VStack justify='center'>
         <Heading bg='gray.300'>SOLAN BACKGAMMON GAME</Heading>
         {!publicKey && <Text bg='gray.300'>Connect to devnet wallet!</Text>}
@@ -39,12 +36,8 @@ export default function Home() {
 
 
       </VStack>
-      <TTTGameStateProvider_2 >
-
-        <GameComponent />
-        {/* <Game_2 /> */}
-      </TTTGameStateProvider_2>
-    </Box >
+      <GameComponent />
+    </>
   )
 
 

@@ -4,8 +4,8 @@ import SessionProvider from "@/contexts/SessionProvider"
 import { GameStateProvider } from "@/contexts/GameStateProvider"
 import type { AppProps } from "next/app"
 import { NftProvider } from "@/contexts/NftProvider"
-
-
+import { BGameStateProvider } from "@/contexts/BGameStateProvider_2"
+import Layout  from "@/components/layout"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <SessionProvider>
           <GameStateProvider>
             <NftProvider>
-              <Component {...pageProps} />
+              <BGameStateProvider >
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </BGameStateProvider>
             </NftProvider>
           </GameStateProvider>
         </SessionProvider>
