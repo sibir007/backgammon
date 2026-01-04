@@ -11,7 +11,7 @@ import { useState } from "react"
 import { initialGameState } from "../test-data/game-data"
 import { GameComponent } from '@/components/my-components/game_two/Game';
 import { BGameStateProvider as TTTGameStateProvider_2 } from '@/contexts/BGameStateProvider_2'
-import { Game_2 } from '@/components/my-components/game_two/Game_2';
+// import { Game_2 } from '@/components/my-components/game_two/Game_2';
 
 export default function Home() {
   const { publicKey } = useWallet();
